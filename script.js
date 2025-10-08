@@ -1,4 +1,3 @@
-// ====== ДИНАМИЧЕСКИЙ МАССИВ ======
 function DynamicArray() {
   this.capacity = 2;
   this.size = 0;
@@ -27,7 +26,6 @@ DynamicArray.prototype._resize = function(newCap) {
   this.capacity = newCap;
 };
 
-// ====== СВЯЗНЫЙ СПИСОК (заметки) ======
 function ListNode(value) {
   this.value = value;
   this.next = null;
@@ -57,7 +55,6 @@ LinkedList.prototype.toArray = function() {
   return arr;
 };
 
-// ====== БИНАРНАЯ КУЧА (макс-куча для топ привычек) ======
 function BinaryHeap() {
   this.items = [];
 }
@@ -99,8 +96,6 @@ BinaryHeap.prototype._siftDown = function(i) {
     i = largest;
   }
 };
-
-// ====== ОСНОВНАЯ ЛОГИКА ======
 var habits = new DynamicArray();
 var tableBody = document.querySelector("#habitTable tbody");
 var notesPanel = document.getElementById("notesPanel");
@@ -205,7 +200,6 @@ function removeNote(i) {
   saveData();
 }
 
-// ====== Топ-3 привычек по прогрессу (бинарная куча) ======
 document.getElementById("btnTop").addEventListener("click", function() {
   var heap = new BinaryHeap();
   var arr = habits.toArray();
@@ -219,7 +213,6 @@ document.getElementById("btnTop").addEventListener("click", function() {
   alert(msg);
 });
 
-// ====== LocalStorage ======
 function saveData() {
   var arr = habits.toArray().map(function(h) {
     return {
@@ -249,3 +242,4 @@ function loadData() {
 }
 loadData();
 render();
+
