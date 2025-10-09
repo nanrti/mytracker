@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Трекер привычек</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="tracker">
     <h1>Трекер привычек</h1>
 
-
-    <form class="add-form">
-      <input id="habitInput" type="text" placeholder="Введите привычку..." required>
+    <form id="addForm" class="add-form">
+      <input id="habitInput" type="text" placeholder="Введите привычку..." required />
+      <select id="categorySelect">
+        <option value="Спорт">Спорт</option>
+        <option value="Учёба">Учёба</option>
+        <option value="Работа">Работа</option>
+        <option value="Здоровье">Здоровье</option>
+        <option value="Другое">Другое</option>
+      </select>
+      <input id="categoryCustom" type="text" placeholder="Или своя категория" />
       <button type="submit">+ Добавить</button>
     </form>
 
+    <div class="controls">
+      <button id="btnTop">Показать топ-3 по прогрессу</button>
+    </div>
+
     <table id="habitTable">
-      <tr>
-        <th>Привычка</th>
-        <th>Пн</th>
-        <th>Вт</th>
-        <th>Ср</th>
-        <th>Чт</th>
-        <th>Пт</th>
-        <th>Сб</th>
-        <th>Вс</th>
-        <th>Прогресс</th>
-      </tr>
+      <thead>
+        <tr>
+          <th>Привычка</th>
+          <th>Категория</th>
+          <th>Пн</th>
+          <th>Вт</th>
+          <th>Ср</th>
+          <th>Чт</th>
+          <th>Пт</th>
+          <th>Сб</th>
+          <th>Вс</th>
+          <th>Прогресс</th>
+          <th>Заметки</th>
+          <th>Удалить</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
     </table>
+
+    <div id="notesPanel" class="notes-panel" style="display:none;">
+      <h3>Заметки для: <span id="notesHabitName"></span></h3>
+      <div id="notesList"></div>
+      <form id="addNoteForm">
+        <input id="noteInput" type="text" placeholder="Текст заметки..." required />
+        <button type="submit">Добавить</button>
+        <button type="button" id="closeNotes">Закрыть</button>
+      </form>
+    </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
-
